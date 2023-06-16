@@ -387,3 +387,10 @@ install(
   FILES ${PROJECT_BINARY_DIR}/cmake/cartographer/cartographer-config.cmake
   DESTINATION share/cartographer/
 )
+
+
+# add my code for debug
+set(MYDIR ${PROJECT_SOURCE_DIR}/cartographer/self_test)
+file(GLOB_RECURSE ALL_RUN_CPP "${MYDIR}/*.cpp")
+add_executable(runtest_demo1 ${ALL_RUN_CPP})
+target_link_libraries(runtest_demo1 gtest)
